@@ -228,6 +228,7 @@ def parse_arguments():
     parser.add_argument('--gpt4only', action='store_true', help='Enable GPT4 Only Mode')
     parser.add_argument('--use-memory', '-m', dest="memory_type", help='Defines which Memory backend to use')
     parser.add_argument('--llama', action='store_true', help='Enable LLAMA Mode')
+    parser.add_argument('--api', action='store_true', help='Enable local API Mode')
     args = parser.parse_args()
 
     if args.debug:
@@ -277,6 +278,10 @@ def parse_arguments():
     if args.llama:
         print_to_console("LLAMA Mode: ", Fore.GREEN, "ENABLED")
         cfg.set_llama_mode(True)
+
+    if args.api:
+        print_to_console("Local API Mode: ", Fore.GREEN, "ENABLED")
+        cfg.set_API_mode(True)
 
 
 
