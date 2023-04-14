@@ -276,11 +276,11 @@ def parse_arguments():
             cfg.memory_backend = chosen
             
     if args.llama:
-        print_to_console("LLAMA Mode: ", Fore.GREEN, "ENABLED")
+        logger.typewriter_log("LLAMA Mode: ", Fore.GREEN, "ENABLED")
         cfg.set_llama_mode(True)
 
     if args.api:
-        print_to_console("Local API Mode: ", Fore.GREEN, "ENABLED")
+        logger.typewriter_log("Local API Mode: ", Fore.GREEN, "ENABLED")
         cfg.set_API_mode(True)
 
 
