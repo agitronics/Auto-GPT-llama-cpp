@@ -1,6 +1,6 @@
 import openai
 from llama_cpp import Llama
-
+from api_conn import SendMessages
 from config import Config
 cfg = Config()
 
@@ -18,6 +18,9 @@ def create_chat_completion(messages, model=None, temperature=None, max_tokens=No
         response = llm.create_chat_completion(messages, temperature=temperature)
         print(response)
         resContent = response["choices"][0]["message"]["content"]
+
+    elif cfg.API_mode:
+        resContent = SendMessages(messages)
     else:
         """Create a chat completion using the OpenAI API"""
         if cfg.use_azure:

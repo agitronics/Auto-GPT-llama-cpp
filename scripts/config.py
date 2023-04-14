@@ -37,6 +37,7 @@ class Config(metaclass=Singleton):
         self.continuous_mode = False
         self.speak_mode = False
         self.llama_mode = False
+        self.API_mode = False
 
         self.fast_llm_model = os.getenv("FAST_LLM_MODEL", "gpt-3.5-turbo")
         self.smart_llm_model = os.getenv("SMART_LLM_MODEL", "gpt-4")
@@ -141,7 +142,10 @@ class Config(metaclass=Singleton):
         if value:
             self.model_path = os.getenv("MODEL_PATH")
             
-
     def set_model_path(self, value: str):
         """Set the debug mode value."""
         self.model_path = value
+
+    def set_API_mode(self, value: bool):
+        """Set the debug mode value."""
+        self.API_mode = value

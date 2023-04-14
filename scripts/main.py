@@ -275,6 +275,7 @@ def parse_arguments():
     parser.add_argument('--debug', action='store_true', help='Enable Debug Mode')
     parser.add_argument('--gpt3only', action='store_true', help='Enable GPT3.5 Only Mode')
     parser.add_argument('--llama', action='store_true', help='Enable LLAMA Mode')
+    parser.add_argument('--api', action='store_true', help='Enable local API Mode')
     args = parser.parse_args()
 
     if args.continuous:
@@ -296,6 +297,10 @@ def parse_arguments():
     if args.llama:
         print_to_console("LLAMA Mode: ", Fore.GREEN, "ENABLED")
         cfg.set_llama_mode(True)
+
+    if args.api:
+        print_to_console("Local API Mode: ", Fore.GREEN, "ENABLED")
+        cfg.set_API_mode(True)
 
 
 
