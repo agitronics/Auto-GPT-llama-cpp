@@ -1,14 +1,18 @@
+import time
 import openai
+from colorama import Fore
 from llama_cpp import Llama
 
 from config import Config
+
 cfg = Config()
 
 
 openai.api_key = cfg.openai_api_key
 
+
 # Overly simple abstraction until we create something better
-def create_chat_completion(messages, model=None, temperature=None, max_tokens=None)->str:
+def create_chat_completion(messages, model=None, temperature=cfg.temperature, max_tokens=None)->str:
     resContent = ""
     if cfg.llama_mode:
         """Create a chat completion locally"""
