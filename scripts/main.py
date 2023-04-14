@@ -274,6 +274,7 @@ def parse_arguments():
     parser.add_argument('--speak', action='store_true', help='Enable Speak Mode')
     parser.add_argument('--debug', action='store_true', help='Enable Debug Mode')
     parser.add_argument('--gpt3only', action='store_true', help='Enable GPT3.5 Only Mode')
+    parser.add_argument('--llama', action='store_true', help='Enable LLAMA Mode')
     args = parser.parse_args()
 
     if args.continuous:
@@ -291,6 +292,10 @@ def parse_arguments():
     if args.gpt3only:
         print_to_console("GPT3.5 Only Mode: ", Fore.GREEN, "ENABLED")
         cfg.set_smart_llm_model(cfg.fast_llm_model)
+
+    if args.llama:
+        print_to_console("LLAMA Mode: ", Fore.GREEN, "ENABLED")
+        cfg.set_llama_mode(True)
 
 
 
